@@ -24,7 +24,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
           </div>
           {/* Accent Badge */}
           <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-10 h-10 sm:w-16 sm:h-16 bg-[#52B2BF] rounded-full border-4 border-white dark:border-[#12141d] z-20 flex items-center justify-center text-white font-black text-xl sm:text-2xl">
-             J
           </div>
         </div>
 

@@ -32,34 +32,30 @@ const App: React.FC = () => {
       <BlobTopRight />
       <BlobBottomLeft />
 
-      <Navbar 
-        language={language} 
-        setLanguage={setLanguage} 
-        isDark={isDark} 
-        toggleTheme={toggleTheme} 
+      <Navbar
+        language={language}
+        setLanguage={setLanguage}
+        isDark={isDark}
+        toggleTheme={toggleTheme}
       />
 
       <main className="container mx-auto max-w-7xl">
         <HeroSection language={language} />
-        
+
         <div className="space-y-0">
-             <AboutSection language={language} />
-             <SkillsSection language={language} />
-             <ProjectsSection language={language} />
-             <HobbiesSection language={language} />
-             <ContactSection language={language} />
+          <AboutSection language={language} />
+          <SkillsSection language={language} />
+          <ProjectsSection language={language} />
+          <HobbiesSection language={language} />
+          <ContactSection language={language} />
         </div>
       </main>
 
       <footer className="bg-[#2D3243] dark:bg-black text-[#BDC3C7] py-20 text-center transition-colors">
         <div className="max-w-5xl mx-auto px-6">
           <p className="font-black text-white text-3xl mb-4 tracking-tighter">RANDRIAMAHERY JASON CHRIS</p>
-          <p className="text-sm mb-10 uppercase tracking-[0.3em] font-bold text-[#52B2BF]">
+          <p className="text-sm  uppercase tracking-[0.3em] font-bold text-[#52B2BF]">
             {language === 'fr' ? 'DÉVELOPPEUR FULL-STACK JAVA / DJANGO' : 'FULL-STACK JAVA / DJANGO DEVELOPER'}
-          </p>
-          <div className="h-px bg-white/10 w-full mb-10"></div>
-          <p className="text-xs font-bold uppercase tracking-widest opacity-50">
-            © {new Date().getFullYear()} - {language === 'fr' ? 'Construit avec React & Tailwind CSS. Design moderne bilingue.' : 'Built with React & Tailwind CSS. Modern bilingual design.'}
           </p>
         </div>
       </footer>
