@@ -1,101 +1,143 @@
-
 import React from 'react';
 import { useGitHubData } from '../../hooks/useGitHubData';
 import { GITHUB_USERNAME, TRANSLATIONS } from '../../constants';
 import { Language } from '../../types';
-import { Star, Github, ExternalLink, Calendar, Code } from 'lucide-react';
+import { Github, ExternalLink, GitCommit, BarChart3, PieChart, ArrowRight } from 'lucide-react';
 import { CapsuleDivider } from '../Shared/StyledForms';
 
 interface ProjectsSectionProps {
   language: Language;
 }
 
-const ProjectCard: React.FC<{ repo: any; language: Language }> = ({ repo, language }) => (
-  <div className="bg-[#2D3243] dark:bg-white/5 text-white p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] shadow-xl flex flex-col h-full transform transition-all hover:-translate-y-2 hover:shadow-[#52B2BF]/20">
-    <div className="flex justify-between items-start mb-5 sm:mb-6">
-      <div className="p-3 sm:p-4 bg-[#52B2BF] rounded-xl sm:rounded-2xl">
-        <Code size={20} className="text-white sm:w-6 sm:h-6" />
-      </div>
-      <div className="flex items-center gap-2 text-[#BDC3C7] dark:text-[#52B2BF] font-black">
-        <Star size={16} className="sm:w-[18px] sm:h-[18px]" />
-        <span className="text-xs sm:text-sm">{repo.stargazers_count}</span>
-      </div>
-    </div>
-    
-    <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 truncate hover:text-[#52B2BF] transition-colors">
-      <a href={repo.html_url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
-    </h3>
-    
-    <p className="text-[#BDC3C7] dark:text-gray-400 text-xs sm:text-sm mb-6 sm:mb-8 flex-grow line-clamp-3 leading-relaxed">
-      {repo.description || (language === 'fr' ? "Aucune description fournie." : "No description provided.")}
-    </p>
-
-    <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[10px] sm:text-xs font-black text-[#52B2BF] mb-5 sm:mb-6">
-      {repo.language && (
-        <span className="bg-[#52B2BF]/20 px-3 sm:px-4 py-1 rounded-full border border-[#52B2BF]/30 uppercase tracking-widest">
-          {repo.language}
-        </span>
-      )}
-      <span className="flex items-center gap-1 opacity-70">
-        <Calendar size={12} className="sm:w-3.5 sm:h-3.5" />
-        {new Date(repo.updated_at).toLocaleDateString()}
-      </span>
-    </div>
-
-    <div className="flex gap-4 sm:gap-6 pt-5 sm:pt-6 border-t border-white/10 mt-auto">
-      <a 
-        href={repo.html_url} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 hover:text-[#52B2BF] transition-colors text-[11px] sm:text-sm font-black uppercase tracking-widest"
-      >
-        <Github size={18} /> Code
-      </a>
-      {repo.homepage && (
-        <a 
-          href={repo.homepage} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 hover:text-[#52B2BF] transition-colors text-[11px] sm:text-sm font-black uppercase tracking-widest"
-        >
-          <ExternalLink size={18} /> Démo
-        </a>
-      )}
-    </div>
-  </div>
-);
-
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ language }) => {
-  const { repos, loading, error, user } = useGitHubData(GITHUB_USERNAME);
+  const { user, loading, error } = useGitHubData(GITHUB_USERNAME);
   const t = TRANSLATIONS[language];
 
+  // Configuration du thème pour les images générées (Readme Stats)
+  // On force un fond blanc pour que l'image se fonde dans la carte blanche
+  // Textes en #2D3243 (ton bleu foncé) et Titres en #52B2BF (ton cyan)
+  const statsThemeParams = "&bg_color=ffffff&title_color=52B2BF&text_color=2D3243&icon_color=52B2BF&hide_border=true&ring_color=52B2BF";
+
   return (
-    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12 sm:mb-16 gap-6 sm:gap-8">
-          <CapsuleDivider>{t.sections.githubProjects}</CapsuleDivider>
-          
+    <section id="projects" className="py-24 px-4 sm:px-6 bg-[#BDC3C7]/5 dark:bg-white/[0.01]">
+      <div className="max-w-5xl mx-auto">
+
+        {/* --- En-tête de la section --- */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-12 sm:mb-8 gap-6 sm:gap-8">
+          <CapsuleDivider>
+            {language === 'fr' ? 'Activité GitHub' : 'GitHub Activity'}
+          </CapsuleDivider>
+
           {user && (
-            <div className="bg-[#2D3243] dark:bg-[#52B2BF] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full flex gap-6 sm:gap-10 text-xs sm:text-sm font-black shadow-lg">
-              <span className="flex gap-2"><strong>{user.public_repos}</strong> REPOS</span>
-              <span className="flex gap-2"><strong>{user.followers}</strong> FOLLOWERS</span>
-            </div>
+            <a
+              href={user.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#2D3243] dark:bg-white text-white dark:text-[#2D3243] px-6 py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-lg"
+            >
+              <Github size={18} />
+              <span>@{GITHUB_USERNAME}</span>
+              <ExternalLink size={14} className="opacity-70" />
+            </a>
           )}
         </div>
 
         {loading ? (
-          <div className="flex justify-center py-20 sm:py-32">
+          <div className="flex justify-center py-24">
             <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-t-4 border-b-4 border-[#52B2BF]"></div>
           </div>
         ) : error ? (
-          <div className="text-center py-20 sm:py-32 text-[#E74C3C] font-black text-lg sm:text-xl">
-            {error}
+          <div className="text-center py-20 bg-red-50 rounded-[2rem] border border-red-100">
+            <p className="text-[#E74C3C] font-black text-lg">{error}</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
-            {repos.map((repo) => (
-              <ProjectCard key={repo.id} repo={repo} language={language} />
-            ))}
+          <div className="flex flex-col gap-8">
+
+            {/* --- 1. Carte Calendrier (Contributions) --- */}
+            <div className="bg-white dark:bg-[#2D3243] p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full group">
+              <div className="flex items-center gap-4 sm:gap-6 mb-8">
+                <div className="p-3 bg-[#2D3243] dark:bg-white text-white dark:text-[#2D3243] rounded-xl shadow-md">
+                  <GitCommit size={24} className="sm:w-6 sm:h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-black text-[#2D3243] dark:text-white uppercase tracking-widest">
+                    {language === 'fr' ? 'Contributions' : 'Contributions'}
+                  </h3>
+                  <p className="text-[#BDC3C7] dark:text-[#52B2BF] text-xs font-black uppercase tracking-wider">
+                    {new Date().getFullYear()} Timeline
+                  </p>
+                </div>
+              </div>
+
+              <div className="w-full overflow-x-auto pb-4 scrollbar-hide">
+                {/* Image du graphique (Générée dynamiquement) */}
+                <img
+                  src={`https://ghchart.rshah.org/52B2BF/${GITHUB_USERNAME}`}
+                  alt="Github Contribution Chart"
+                  className="w-full min-w-[700px] opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </div>
+
+            {/* --- 2. Grille Statistiques & Langages --- */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+
+              {/* Carte Stats Globales */}
+              <div className="bg-white dark:bg-[#2D3243] p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full group">
+                <div className="flex items-center gap-4 ">
+                  <div className="p-3 bg-[#2D3243] dark:bg-white text-white dark:text-[#2D3243] rounded-xl shadow-md">
+                    <BarChart3 size={20} />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-black text-[#2D3243] dark:text-white uppercase tracking-widest">
+                    {language === 'fr' ? 'Statistiques' : 'Global Stats'}
+                  </h3>
+                </div>
+
+                <div className="flex-grow flex items-center justify-center py-4">
+                  {/* On utilise l'API mais on s'assure que le fond correspond à notre carte */}
+                  <img
+                    src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&count_private=true&rank_icon=github${statsThemeParams}`}
+                    alt="Github Stats"
+                    className="w-full h-auto max-w-[400px] "
+                  />
+                </div>
+              </div>
+
+              {/* Carte Langages */}
+              <div className="bg-white dark:bg-[#2D3243] p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full group">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-[#2D3243] dark:bg-white text-white dark:text-[#2D3243] rounded-xl shadow-md">
+                    <PieChart size={20} />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-black text-[#2D3243] dark:text-white uppercase tracking-widest">
+                    {language === 'fr' ? 'Langages' : 'Languages'}
+                  </h3>
+                </div>
+
+                <div className="flex-grow flex items-center justify-center py-4">
+                  <img
+                    src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GITHUB_USERNAME}&layout=compact&langs_count=6${statsThemeParams}`}
+                    alt="Top Languages"
+                    className="w-full h-auto max-w-[400px] "
+                  />
+                </div>
+              </div>
+
+            </div>
+
+            {/* --- 3. Footer / Lien Call to Action --- */}
+            <div className="flex justify-center mt-8">
+              <a
+                href={`https://github.com/${GITHUB_USERNAME}?tab=repositories`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group text-[#2D3243] dark:text-white flex items-center gap-2 text-sm font-black uppercase tracking-widest hover:text-[#52B2BF] dark:hover:text-[#52B2BF] transition-colors"
+              >
+                {language === 'fr' ? 'Voir tous les dépôts' : 'View all repositories'}
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+
           </div>
         )}
       </div>

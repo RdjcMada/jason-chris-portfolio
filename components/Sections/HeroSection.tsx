@@ -17,7 +17,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
           <div className="absolute -inset-2 sm:-inset-4 bg-[#52B2BF] rounded-full opacity-20 -z-10 animate-pulse"></div>
           <div className="w-48 h-48 sm:w-60 h-60 md:w-72 md:h-72 rounded-full border-4 sm:border-8 border-[#2D3243] dark:border-[#52B2BF] overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105">
             <img 
-              src="https://picsum.photos/seed/jasonchris/600/600" 
+              src="https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/pro_pircture.jpg" 
               alt={PERSONAL_INFO.fullName}
               className="w-full h-full object-cover grayscale-[10%]"
             />
@@ -37,10 +37,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
             {PERSONAL_INFO.title[language]}
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-             <a href="#projects" className="bg-[#2D3243] dark:bg-[#52B2BF] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-black text-sm sm:text-base hover:scale-105 active:scale-95 transition-all shadow-xl text-center">
+             <a href="#projects" className="bg-[#2D3243] dark:bg-[#52B2BF] text-white px-8 sm:px-10 py-3 sm:py-5 rounded-full font-black text-sm sm:text-base hover:scale-105 active:scale-95 transition-all shadow-xl text-center">
                 {t.hero.viewProjects}
              </a>
-             <a href="#contact" className="border-2 border-[#2D3243] dark:border-white text-[#2D3243] dark:text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-black text-sm sm:text-base hover:bg-[#2D3243] hover:text-white dark:hover:bg-white dark:hover:text-[#2D3243] transition-all transform hover:-translate-y-1 text-center">
+             <a href="#contact" className="border-2 border-[#2D3243] dark:border-white text-[#2D3243] dark:text-white px-8 sm:px-10 py-3 sm:py-4 mt-1 rounded-full font-black text-sm sm:text-base hover:bg-[#2D3243] hover:text-white dark:hover:bg-white dark:hover:text-[#2D3243] transition-all transform hover:-translate-y-1 text-center">
                 {t.hero.contactMe}
              </a>
           </div>

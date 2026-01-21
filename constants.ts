@@ -1,7 +1,7 @@
 
 import { Experience, AcademicProject, Translations } from './types';
 
-export const GITHUB_USERNAME = 'jasonchris-rd';
+export const GITHUB_USERNAME = 'RdjcMada';
 
 export const PERSONAL_INFO = {
   fullName: 'RANDRIAMAHERY JASON CHRIS',

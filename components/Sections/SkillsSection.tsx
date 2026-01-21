@@ -31,7 +31,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ language }) => {
   return (
     <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 bg-gray-50 dark:bg-white/[0.02]">
       <div className="max-w-5xl mx-auto">
-        <CapsuleDivider className="mb-12 sm:mb-16 w-fit mx-auto md:mx-0">
+        <CapsuleDivider className="mb-8 sm:mb-8 w-fit mx-auto md:mx-0">
           {t.sections.skills}
         </CapsuleDivider>
 

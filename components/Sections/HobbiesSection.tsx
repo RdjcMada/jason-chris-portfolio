@@ -14,7 +14,7 @@ const HobbiesSection: React.FC<HobbiesSectionProps> = ({ language }) => {
   return (
     <section className="py-24 px-6 bg-white dark:bg-[#12141d]">
       <div className="max-w-5xl mx-auto">
-        <CapsuleDivider className="mb-16 w-fit mx-auto md:mx-0">
+        <CapsuleDivider className="mb-8 w-fit mx-auto md:mx-0">
           {t.sections.hobbies}
         </CapsuleDivider>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
