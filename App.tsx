@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   return (
     // 2. On enveloppe tout dans le Router
-    <Router>
+    <Router basename="/jason-chris-portfolio">
       <div className="min-h-screen relative overflow-x-hidden selection:bg-[#52B2BF]/30 selection:text-[#2D3243] transition-colors duration-300">
         
         {/* Background Shapes (Visibles sur toutes les pages) */}
