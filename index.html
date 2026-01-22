@@ -1,48 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RANDRIAMAHERY JASON CHRIS | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              cvDark: '#2D3243',
-              cvAccent: '#52B2BF',
-              cvRed: '#E74C3C',
-              cvGrey: '#BDC3C7',
-            }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jason Chris | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cvDark: '#2D3243',
+            cvAccent: '#52B2BF',
+            cvRed: '#E74C3C',
+            cvGrey: '#BDC3C7',
           }
         }
       }
-    </script>
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Animation for geometric blobs */
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
       }
-      
-      /* Animation for geometric blobs */
-      @keyframes float {
-        0% { transform: translate(0, 0) rotate(0deg); }
-        50% { transform: translate(10px, 15px) rotate(2deg); }
-        100% { transform: translate(0, 0) rotate(0deg); }
+
+      50% {
+        transform: translate(10px, 15px) rotate(2deg);
       }
-      .blob-animate { animation: float 10s ease-in-out infinite; }
-      
-      .dark body {
-        background-color: #12141d;
-        color: #f3f4f6;
+
+      100% {
+        transform: translate(0, 0) rotate(0deg);
       }
-    </style>
+    }
+
+    .blob-animate {
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .dark body {
+      background-color: #12141d;
+      color: #f3f4f6;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -53,9 +65,16 @@
   }
 }
 </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
 </head>
-  <body class="bg-white text-[#2D3243]">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body class="bg-white text-[#2D3243]">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
