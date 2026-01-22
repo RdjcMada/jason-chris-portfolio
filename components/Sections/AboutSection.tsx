@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // 1. Import nécessaire
 import { EDUCATION, TRANSLATIONS } from '../../constants';
 import { Language } from '../../types';
 import { CapsuleDivider } from '../Shared/StyledForms';
@@ -10,6 +11,14 @@ interface AboutSectionProps {
 
 const AboutSection: React.FC<AboutSectionProps> = ({ language }) => {
   const t = TRANSLATIONS[language];
+  const navigate = useNavigate(); // 2. Initialisation du hook
+
+  // 3. Fonction de navigation (identique à HeroSection)
+  const handleGoToProjects = (e: React.MouseEvent) => {
+    e.preventDefault(); // Empêche le rechargement de page (l'erreur 404)
+    navigate('/projects'); // Le Router sait qu'il doit ajouter le basename tout seul
+    window.scrollTo(0, 0);
+  };
 
   return (
     <section id="about" className="py-12 sm:py-20 px-4 sm:px-6">
@@ -24,7 +33,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({ language }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12">
             {EDUCATION[language].map((edu, idx) => (
               <div key={idx} className="relative pl-8 group">
-                {/* Ligne verticale décorative */}
                 <div className="absolute left-0 top-1 bottom-1 w-1.5 bg-[#BDC3C7]/30 dark:bg-white/10 rounded-full group-hover:bg-[#52B2BF] transition-colors duration-500"></div>
 
                 <div className="flex items-start gap-3 mb-2">
@@ -60,7 +68,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({ language }) => {
 
           {/* --- Academic Projects Teaser (CTA CARD) --- */}
           <div className="relative overflow-hidden rounded-[2.5rem] bg-[#2D3243] dark:bg-white/5 p-8 sm:p-12 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8 shadow-2xl shadow-[#2D3243]/10 dark:shadow-none group">
-            {/* Décoration d'arrière plan */}
             <div className="absolute top-0 right-0 bg-[#52B2BF] rounded-full blur-[80px] opacity-10 sm:opacity-20 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
             <div className="relative z-10 max-w-lg">
               <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">
@@ -74,9 +81,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({ language }) => {
             </div>
 
             <div className="relative z-10 shrink-0">
+              {/* 4. MODIFICATION ICI : Utilisation du onClick au lieu du href direct */}
               <a
-                href="/jason-chris-portfolio/projects"
-                className="flex items-center gap-3 px-8 py-4 rounded-full bg-white text-[#2D3243] hover:bg-[#52B2BF] hover:text-white transition-all duration-300 font-black uppercase tracking-widest text-sm shadow-xl transform hover:-translate-y-1"
+                href="/projects" 
+                onClick={handleGoToProjects}
+                className="flex items-center gap-3 px-8 py-4 rounded-full bg-white text-[#2D3243] hover:bg-[#52B2BF] hover:text-white transition-all duration-300 font-black uppercase tracking-widest text-sm shadow-xl transform hover:-translate-y-1 cursor-pointer"
               >
                 <Layers size={20} />
                 {language === 'fr' ? "Voir les projets" : "View Projects"}
