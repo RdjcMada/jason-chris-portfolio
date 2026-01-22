@@ -75,7 +75,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ language }) => {
 
             <div className="relative z-10 shrink-0">
               <a
-                href="projects"
+                href="/jason-chris-portfolio/projects"
                 className="flex items-center gap-3 px-8 py-4 rounded-full bg-white text-[#2D3243] hover:bg-[#52B2BF] hover:text-white transition-all duration-300 font-black uppercase tracking-widest text-sm shadow-xl transform hover:-translate-y-1"
               >
                 <Layers size={20} />
