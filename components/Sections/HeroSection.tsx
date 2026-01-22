@@ -1,5 +1,6 @@
-
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Pour la navigation entre pages
+import { scroller } from 'react-scroll'; // Pour le scroll fluide vers les sections
 import { PERSONAL_INFO, TRANSLATIONS } from '../../constants';
 import { Language } from '../../types';
 
@@ -9,6 +10,25 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
   const t = TRANSLATIONS[language];
+  const navigate = useNavigate();
+
+  // Fonction pour scroller proprement vers la section Contact
+  const handleScrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault(); // Empêche le saut brutal par défaut
+    scroller.scrollTo('contact', {
+      smooth: true,
+      duration: 800,
+      offset: -80, // Ajustement pour ne pas être caché par la navbar
+    });
+  };
+
+  // Fonction pour aller vers la page Projets
+  const handleGoToProjects = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/projects');
+    window.scrollTo(0, 0); // Force le scroll en haut de la nouvelle page
+  };
+
   return (
     <section id="home" className="relative pt-24 sm:pt-36 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-12 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 sm:gap-12">
@@ -16,8 +36,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
         <div className="relative group">
           <div className="absolute -inset-2 sm:-inset-4 bg-[#52B2BF] rounded-full opacity-20 -z-10 animate-pulse"></div>
           <div className="w-48 h-48 sm:w-60 h-60 md:w-72 md:h-72 rounded-full border-4 sm:border-8 border-[#2D3243] dark:border-[#52B2BF] overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105">
-            <img 
-              src="https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/pro_pircture.jpg" 
+            <img
+              src="https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/pro_pircture.jpg"
               alt={PERSONAL_INFO.fullName}
               className="w-full h-full object-cover grayscale-[10%]"
             />
@@ -36,13 +56,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
           <p className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#2D3243]/80 dark:text-gray-400 uppercase tracking-widest leading-snug">
             {PERSONAL_INFO.title[language]}
           </p>
+          
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-             <a href="#projects" className="bg-[#2D3243] dark:bg-[#52B2BF] text-white px-8 sm:px-10 py-3 sm:py-5 rounded-full font-black text-sm sm:text-base hover:scale-105 active:scale-95 transition-all shadow-xl text-center">
-                {t.hero.viewProjects}
-             </a>
-             <a href="#contact" className="border-2 border-[#2D3243] dark:border-white text-[#2D3243] dark:text-white px-8 sm:px-10 py-3 sm:py-4 mt-1 rounded-full font-black text-sm sm:text-base hover:bg-[#2D3243] hover:text-white dark:hover:bg-white dark:hover:text-[#2D3243] transition-all transform hover:-translate-y-1 text-center">
-                {t.hero.contactMe}
-             </a>
+            
+            {/* Bouton 1 : Voir Projets (Utilise useNavigate) */}
+            <a
+              href="/projects"
+              onClick={handleGoToProjects}
+              className="h-10 sm:h-12 px-8 bg-[#2D3243] dark:bg-[#52B2BF] text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm uppercase tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            >
+              {t.hero.viewProjects}
+            </a>
+
+            {/* Bouton 2 : Contact (Utilise react-scroll) */}
+            <a
+              href="#contact"
+              onClick={handleScrollToContact}
+              className="h-10 sm:h-12 px-8 border-2 border-[#2D3243] dark:border-white text-[#2D3243] dark:text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm uppercase tracking-widest hover:bg-[#2D3243] hover:text-white dark:hover:bg-white dark:hover:text-[#2D3243] transition-all transform hover:-translate-y-1 cursor-pointer"
+            >
+              {t.hero.contactMe}
+            </a>
+            
           </div>
         </div>
       </div>

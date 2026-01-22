@@ -1,4 +1,6 @@
+// src/types.ts
 
+// --- GITHUB ---
 export interface GitHubRepo {
   id: number;
   name: string;
@@ -17,13 +19,17 @@ export interface GitHubUser {
   followers: number;
   following: number;
   bio: string;
+  html_url: string;
 }
 
+// --- COMPÉTENCES ---
 export interface Skill {
-  name: string;
+  // Le nom peut être une simple chaîne OU un objet avec traductions (pour les langues)
+  name: string | { fr: string; en: string };
   level: number; 
 }
 
+// --- EXPÉRIENCES ---
 export interface Experience {
   title: string;
   company: string;
@@ -31,11 +37,25 @@ export interface Experience {
   details: string[];
 }
 
+// --- ANCIEN TYPE (Gardé pour compatibilité si nécessaire) ---
 export interface AcademicProject {
   title: string;
   description: string;
 }
 
+// --- NOUVEAU TYPE : PROJETS RÉALISÉS (Pour la page AllProjectsPage) ---
+export interface Project {
+  title: string;
+  description: string;
+  fullDescription?: string;
+  technologies: string[];
+  category: 'professional' | 'personal' | 'academic';
+  githubUrl?: string;
+  demoUrl?: string;
+  imageUrl?: string; // <--- NOUVEAU CHAMP
+}
+
+// --- GLOBAL ---
 export type Language = 'fr' | 'en';
 
 export interface Translations {
@@ -45,6 +65,7 @@ export interface Translations {
     skills: string;
     projects: string;
     contact: string;
+    activite: string;
   };
   hero: {
     viewProjects: string;

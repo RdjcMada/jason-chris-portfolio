@@ -8,15 +8,14 @@ interface ContactSectionProps {
   language: Language;
 }
 
-// ⚠️ REMPLACE CES LIENS PAR TES VRAIS LIENS CDN ⚠️
 const CV_LINKS: Record<Language, string> = {
-  fr: "https://cdn.ton-domaine.com/cv-francais.pdf",
-  en: "https://cdn.ton-domaine.com/cv-english.pdf"
+  fr: "https://raw.githubusercontent.com/RdjcMada/jason-chris-portfolio/main/assets/Cv_FRS.pdf",
+  en: "https://raw.githubusercontent.com/RdjcMada/jason-chris-portfolio/main/assets/Cv_ENG.pdf" // Assure-toi que ce fichier existe aussi
 };
 
 const ContactItem: React.FC<{ icon: React.ReactNode; label: string; value: string; href?: string }> = ({ icon, label, value, href }) => (
   <div className="flex items-start gap-5">
-    {/* L'icône reste fixe (gris clair / blanc transparent) */}
+    {/* L'icône reste fixe */}
     <div className="p-3 bg-[#BDC3C7]/10 dark:bg-white/10 text-[#2D3243] dark:text-white rounded-xl shrink-0">
       {React.cloneElement(icon as React.ReactElement<any>, { size: 20 })}
     </div>
@@ -131,7 +130,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
                 href={CV_LINKS[language]} 
                 target="_blank"
                 rel="noopener noreferrer"
-                download 
+                // L'attribut download suggère au navigateur de télécharger, 
+                // mais avec un lien externe, le navigateur ouvrira souvent le PDF dans un nouvel onglet
+                // (ce qui est le comportement standard sécurisé pour les PDF).
                 className="w-full bg-[#2D3243] dark:bg-white text-white dark:text-[#2D3243] py-4 rounded-xl font-black flex items-center justify-center gap-3 hover:bg-[#52B2BF] dark:hover:bg-[#52B2BF] dark:hover:text-white transition-all shadow-xl hover:shadow-[#52B2BF]/20 uppercase tracking-widest text-sm transform hover:-translate-y-1 cursor-pointer"
               >
                 {t.contact.downloadBtn}

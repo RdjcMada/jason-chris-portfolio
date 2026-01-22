@@ -5,11 +5,11 @@ import { Language } from '../../types';
 import { Github, ExternalLink, GitCommit, BarChart3, PieChart, ArrowRight } from 'lucide-react';
 import { CapsuleDivider } from '../Shared/StyledForms';
 
-interface ProjectsSectionProps {
+interface ActiviteGithubProps {
   language: Language;
 }
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ language }) => {
+const ActiviteGithub: React.FC<ActiviteGithubProps> = ({ language }) => {
   const { user, loading, error } = useGitHubData(GITHUB_USERNAME);
   const t = TRANSLATIONS[language];
 
@@ -19,7 +19,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ language }) => {
   const statsThemeParams = "&bg_color=ffffff&title_color=52B2BF&text_color=2D3243&icon_color=52B2BF&hide_border=true&ring_color=52B2BF";
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 bg-[#BDC3C7]/5 dark:bg-white/[0.01]">
+    <section id="activite" className="py-24 px-4 sm:px-6 bg-[#BDC3C7]/5 dark:bg-white/[0.01]">
       <div className="max-w-5xl mx-auto">
 
         {/* --- En-tête de la section --- */}
@@ -145,4 +145,4 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ language }) => {
   );
 };
 
-export default ProjectsSection;
+export default ActiviteGithub;
