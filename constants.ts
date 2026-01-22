@@ -84,17 +84,8 @@ export const REALIZED_PROJECTS: Record<'fr' | 'en', Project[]> = {
       fullDescription: 'Développement d\'une plateforme interactive complète pour la gestion hôtelière. Le système inclut un planning dynamique en temps réel pour les réceptions, un moteur de réservation intelligent qui empêche les conflits, une facturation PDF automatique et des tableaux de bord financiers détaillés.',
       technologies: ['Django REST', 'React', 'TypeScript', 'PostgreSQL', 'Tailwind'],
       category: 'professional',
-      imageUrl: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=1000',
+      imageUrl: 'https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/project_icon/blue_hotel_logo.png',
       // githubUrl: '...' (Projet privé probablement)
-    },
-    {
-      title: 'Cryptomonnaie Dashboard',
-      description: 'Plateforme d\'échange et de suivi de cryptos.',
-      fullDescription: 'Une solution complète comprenant une application mobile pour les utilisateurs (achat/vente) et un tableau de bord web pour les administrateurs. Utilisation de Firebase pour la synchronisation des données en temps réel entre les plateformes.',
-      technologies: ['Spring Boot', 'React Native', 'Firebase', 'Java'],
-      category: 'academic',
-      githubUrl: `https://github.com/${GITHUB_USERNAME}`,
-      imageUrl: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&q=80&w=1000',
     },
     {
       title: 'Gestion RH (ERPNext)',
@@ -102,15 +93,7 @@ export const REALIZED_PROJECTS: Record<'fr' | 'en', Project[]> = {
       fullDescription: 'Création d\'une application personnalisée au sein de l\'écosystème Frappe/ERPNext. Extension des DocTypes standards pour gérer les congés spécifiques, les évaluations de performance et l\'automatisation de la paie selon les normes locales.',
       technologies: ['Python', 'Frappe', 'MariaDB', 'ERPNext'],
       category: 'academic',
-      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000',
-    },
-    {
-      title: 'Streaming App',
-      description: 'Diffusion vidéo/audio en temps réel via sockets.',
-      fullDescription: 'Projet de recherche sur la transmission de données à faible latence. Implémentation de sockets TCP pour le contrôle et UDP pour le flux média. Gestion du multithreading pour assurer une lecture fluide sans blocage de l\'interface.',
-      technologies: ['Java', 'Sockets', 'Multithreading', 'Swing'],
-      category: 'personal',
-      imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Erpnext_logo.svg',
     }
   ],
   en: [
@@ -120,16 +103,7 @@ export const REALIZED_PROJECTS: Record<'fr' | 'en', Project[]> = {
       fullDescription: 'Development of a comprehensive interactive platform for hotel management. The system includes a real-time dynamic schedule for receptions, a smart booking engine preventing conflicts, automated PDF invoicing, and detailed financial dashboards.',
       technologies: ['Django REST', 'React', 'TypeScript', 'PostgreSQL', 'Tailwind'],
       category: 'professional',
-      imageUrl: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=1000',
-    },
-    {
-      title: 'Cryptocurrency Dashboard',
-      description: 'Real-time crypto exchange platform.',
-      fullDescription: 'A complete solution featuring a mobile app for users (buy/sell) and a web dashboard for administrators. Uses Firebase for real-time data synchronization across platforms.',
-      technologies: ['Spring Boot', 'React Native', 'Firebase', 'Java'],
-      category: 'academic',
-      githubUrl: `https://github.com/${GITHUB_USERNAME}`,
-      imageUrl: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&q=80&w=1000',
+      imageUrl: 'https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/project_icon/blue_hotel_logo.png',
     },
     {
       title: 'HR Management (ERPNext)',
@@ -137,15 +111,7 @@ export const REALIZED_PROJECTS: Record<'fr' | 'en', Project[]> = {
       fullDescription: 'Creation of a custom application within the Frappe/ERPNext ecosystem. Extension of standard DocTypes to handle specific leaves, performance evaluations, and payroll automation according to local standards.',
       technologies: ['Python', 'Frappe', 'MariaDB', 'ERPNext'],
       category: 'academic',
-      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000',
-    },
-    {
-      title: 'Streaming App',
-      description: 'Video/audio broadcasting via sockets.',
-      fullDescription: 'Research project on low-latency data transmission. Implementation of TCP sockets for control and UDP for media streams. Multithreading management to ensure smooth playback without UI blocking.',
-      technologies: ['Java', 'Sockets', 'Multithreading', 'Swing'],
-      category: 'personal',
-      imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Erpnext_logo.svg',
     }
   ]
 };
