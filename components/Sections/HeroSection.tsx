@@ -39,7 +39,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
             <img
               src="https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/pro_picture.png"
               alt={PERSONAL_INFO.fullName}
-              className="w-full h-full object-cover scale-110 translate-y-3  grayscale-[10%]"
+              className="w-full h-full object-cover grayscale-[10%]"
             />
           </div>
           {/* Accent Badge */}
