@@ -37,7 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
           <div className="absolute -inset-2 sm:-inset-4 bg-[#52B2BF] rounded-full opacity-20 -z-10 animate-pulse"></div>
           <div className="w-48 h-48 sm:w-60 h-60 md:w-72 md:h-72 rounded-full border-4 sm:border-8 border-[#2D3243] dark:border-[#52B2BF] overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105">
             <img
-              src="https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/pro_pircture.png"
+              src="https://cdn.jsdelivr.net/gh/RdjcMada/jason-chris-portfolio@main/assets/pro_picture.png"
               alt={PERSONAL_INFO.fullName}
               className="w-full h-full object-cover scale-110 translate-y-3  grayscale-[10%]"
             />
